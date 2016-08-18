@@ -1,16 +1,5 @@
 <template>
-
-    <!--<pre>
-        ${path | objectToString}
-    </pre>
-
-    <pre>
-        ${controller | objectToString}
-    </pre>-->
-
-<!--<ul class="list-group">
-  <li repeat.for="workspace of controller.workSpaces" class="list-group-item">${workspace.viewModel}</li>-->
-  
+ 
 </ul>
 
     <div class="container-fluid">
@@ -25,7 +14,7 @@
             </ul>
             <div class="container-fluid" repeat.for="workspace of controller.workSpaces">
                 <div show.bind="workspace.isActive" class="container-fluid">
-                    Active: ${workspace.isActive}
+                    
                     <compose containerless view-model="./views/${workspace.section}/${workspace.viewModel}" model.bind="workspace" />
                 </div>
             </div>

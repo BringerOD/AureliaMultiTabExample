@@ -8,19 +8,15 @@ export class shell {
   constructor( container: Container) {
         this.test = 'Welcome to the Prime V5!';
         this.controller = new Workspaces();
-        // var ss = Aurelia;
-        // var c = new Container();
-        
+       
       }
 
   activate(params, routeConfig) {
 
         console.log(routeConfig);
         this.AddWorkspace(params);
-      
-    
+          
   }
-
 
   AddWorkspace(params){
 
