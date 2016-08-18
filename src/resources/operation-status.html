@@ -1,0 +1,62 @@
+﻿<template bindable="status,errors,autofocus">
+   
+
+    <!--<pre  >
+        
+        ${status | objectToString}
+    </pre>-->
+
+    <!--<pre  >
+        ${errors | objectToString}
+    </pre>-->
+
+<!--if.bind="status.showValue"-->
+    <div if.bind="status.showValue" class="container-fluid">
+        <ul class="list-group" >
+            <li  class="list-group-item list-group-item-${status.boxClass}"><strong>${status.message}</strong></li>
+            <li repeat.for="item of status.validationErrors" class="list-group-item list-group-item-${status.boxClass}">${item.Message}</li>
+            <li repeat.for="errorInfo of status.errors" click.delegate="errorInfo.target.focus()" class="list-group-item list-group-item-${status.boxClass}">${errorInfo.message}</li>
+            <li if.bind="status.linkText.length > 0" class="list-group-item list-group-item-${status.boxClass}"><a href.two-way="status.linkUrl">${status.linkText}</a></li>
+        </ul>
+    </div>
+
+    <div if.bind="spinner"  class="container-fluid">
+        <!--<p class="text-center"> <i class="fa fa-circle-o-notch fa-spin fa-1x"></i></p>-->
+        <ul class="list-group" >
+            <li  class="list-group-item"><i class="fa fa-circle-o-notch fa-spin fa-1x"></i>&nbsp;  <strong>Processing your request. Please wait.</strong></li>
+        </ul>
+     </div>
+
+    <div class="modal fade" id="pleaseWaitDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Processing...</h4>
+                </div>
+                <div class="modal-body">
+
+                 <p class="text-center"> <i class="fa fa-spinner fa-spin fa-5x"></i></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <!--<div class="alert alert-danger" tabindex="-1"       
+       show.bind="errors.length"
+       focus.one-way="autofocus && errors.length > 0">
+    <ul class="list-unstyled">
+      <li repeat.for="errorInfo of errors">
+        <a class="text-danger" href="#" click.delegate="errorInfo.target.focus()">
+          ${errorInfo.error.message}
+        </a>
+      </li>
+    </ul>
+  </div>-->
+
+
+</template>
