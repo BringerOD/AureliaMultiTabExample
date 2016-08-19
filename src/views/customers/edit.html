@@ -1,7 +1,8 @@
 <template>
 
  
- 
+ <!--<pre>${workspace | objectToString}</pre>-->
+
 <div class="container-fluid">
     <div class="row">
 
@@ -9,6 +10,9 @@
   <input value.bind="lastName">
 
   <button click.trigger="sayHello()">Say Hello</button>    
+
+
+    <button click.trigger="close()">Close</button>
     </div>
 
 </div>

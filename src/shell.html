@@ -17,7 +17,7 @@
             <div class="container-fluid" repeat.for="workspace of controller.workSpaces">
                 <div show.bind="workspace.isActive" class="container-fluid">
                     
-                    <compose containerless view-model="./views/${workspace.section}/${workspace.viewModel}" model.bind="workspace" />
+                    <compose containerless view-model="./views/${workspace.section}/${workspace.viewModel}" model.bind="workspace"  />
                 </div>
             </div>
 

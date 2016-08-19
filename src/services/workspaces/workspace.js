@@ -3,7 +3,8 @@ import {Router} from "aurelia-router";
 
 export class Workspace {
 
-    constructor(section, viewmodel, id) {
+    constructor(section, viewmodel, id,controller) {
+        this.controller = controller;
         this.section = section;
         this.viewModel = viewmodel;
         this.id = id;
@@ -67,7 +68,7 @@ export class Workspaces {
         }
 
         // create a new one
-        let tempWorkspace = new Workspace(section, viewmodel, id);
+        let tempWorkspace = new Workspace(section, viewmodel, id, this);
 
         // Check it it already exists
         let existingWorkspace = _.find(this.workSpaces, function (x) { return x.key == tempWorkspace.key; });

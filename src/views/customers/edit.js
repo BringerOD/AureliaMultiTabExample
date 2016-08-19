@@ -1,9 +1,11 @@
+import {bindable, bindingMode} from 'aurelia-framework';
 
 export class EditCustomer {
 
+    
 
-firstName = 'John';
-  lastName = 'Doe';
+    firstName = 'John';
+    lastName = 'Doe';
 
   sayHello() {
     alert(`Hello ${this.firstName} ${this.lastName}. Nice to meet you.`);
@@ -13,9 +15,13 @@ firstName = 'John';
 
     }
 
-    activate(params, routeConfig) {
+    close(){
 
-        this.path = params;
+        this.workspace.controller.closeWorkspace(this.workspace);
+    }
+    activate(model) {
+
+        this.workspace = model;
 
     }
 
