@@ -15,8 +15,15 @@ export class shell {
 
   activate(params, routeConfig) {
 
+
+
+      if (!params.section){
+           const url = this.router.generate("shell", { section: 'customers' ,viewmodel: 'listing',id: 'default' });
+           this.router.navigate(url, undefined);
+      }
+      else{
         console.log(routeConfig);
-        this.AddWorkspace(params);
+        this.AddWorkspace(params);}
           
   }
 
