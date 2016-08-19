@@ -1,11 +1,13 @@
-//import {computedFrom} from 'aurelia-framework';
-import {Container} from 'aurelia-dependency-injection';
 import 'bootstrap';
 import {Workspaces,Workspace} from './services/workspaces/workspace';
+import { inject} from "aurelia-framework";
+import {Router} from "aurelia-router";
 
+@inject(Router)
 export class shell {
   
-  constructor( container: Container) {
+  constructor( router) {
+       this.router = router;
         this.test = 'Welcome to the Prime V5!';
         this.controller = new Workspaces();
        
@@ -18,6 +20,17 @@ export class shell {
           
   }
 
+  closeWorkspace(workspace){
+      let failbackworkspace = this.controller.closeWorkspace(workspace);
+
+     if (failbackworkspace)
+     {
+        const url = this.router.generate("shell", { section: failbackworkspace.section ,viewmodel:failbackworkspace.viewModel,id: failbackworkspace.id });
+        this.router.navigate(url, undefined);
+     } 
+
+        
+  }
   AddWorkspace(params){
 
      this.controller.addWorkspace(params.section,params.viewmodel, params.id);
